@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0c0b09;
+  --color-card: #13110e;
+  --color-border: #211e18;
+  --color-primary: #e8ddd0;
+  --color-body: #a09580;
+  --color-muted: #6a5f4f;
+  --color-accent: #C4956A;
+
+  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-outfit);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}

@@ -1,0 +1,4 @@
+astro/.next/
+astro/node_modules/
+astro/astro.db
+astro/.env.local
