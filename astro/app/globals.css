@@ -9,6 +9,13 @@
   --color-muted: #6a5f4f;
   --color-accent: #C4956A;
 
+  /* Action state palette */
+  --color-initiate: #6BA89E;
+  --color-expand:   #C4956A;
+  --color-refine:   #9B8EC4;
+  --color-pause:    #7A8B99;
+  --color-close:    #B05A5A;
+
   --font-display: var(--font-cormorant);
   --font-sans: var(--font-outfit);
 }
