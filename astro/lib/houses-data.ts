@@ -1,0 +1,148 @@
+export type ActivationLevel = 'VERY HIGH' | 'HIGH' | 'MEDIUM' | 'LOW';
+
+export interface HouseContent {
+  n: number;
+  verb: string;
+  sign: string;
+  natalPlanets: string;
+  activation: ActivationLevel;
+  story: string;
+  ask: string;
+  isKey: boolean;
+  isActivated: boolean;
+}
+
+export const HOUSES: HouseContent[] = [
+  {
+    n: 1,
+    verb: 'I Embody',
+    sign: 'Taurus',
+    natalPlanets: '☽ Moon (Gemini 1°)',
+    activation: 'HIGH',
+    isKey: false,
+    isActivated: true,
+    story: `Taurus rising gives you weight before you speak — people trust your presence. But your Moon is right here in Gemini, which means underneath that groundedness is a mind that moves fast, connects laterally, and gets restless when things are too slow. You look like someone who takes their time; inside you're already three steps ahead. The tension is real but it's not a contradiction. It's your edge. The woman who holds the room AND articulates the nuance — that's not two people. That's you when you stop choosing.`,
+    ask: `Let both show up. Stop performing groundedness when your mind is somewhere interesting.`,
+  },
+  {
+    n: 2,
+    verb: 'I Value',
+    sign: 'Gemini',
+    natalPlanets: '',
+    activation: 'MEDIUM',
+    isKey: false,
+    isActivated: false,
+    story: `How you make money and why you keep underpricing. Gemini here means your value is translation — seeing the connection between a 17th-century poinçon and a brand strategy, and putting that into language. The range IS the product. But Gemini on the 2nd scatters: too many small offers, too many "I could do this too." Revenue architecture: retainer/advisory, membership/salon, paid intellectual content, private curated access. Four streams, not fourteen.`,
+    ask: `Name your value without simplifying it. Price the range. Stop giving away the bridging for free.`,
+  },
+  {
+    n: 3,
+    verb: 'I Communicate',
+    sign: 'Cancer',
+    natalPlanets: '☋ South Node (Cancer 9°)',
+    activation: 'HIGH',
+    isKey: false,
+    isActivated: true,
+    story: `Your default zone. Cancer here with your South Node means you instinctively communicate through nurturing — making people comfortable, held, understood. And you're extraordinary at it. But it's the pattern you're outgrowing. Every time you soften your opinion to accommodate, frame your expertise as a question, say "I think maybe..." when you know — that's the South Node. Jupiter is transiting here in 2026, which AMPLIFIES this. The temptation to default is at maximum volume. The growth is hearing it clearly enough to choose differently.`,
+    ask: `Speak from what you know, not what soothes. The stretch is leading with the direct part.`,
+  },
+  {
+    n: 4,
+    verb: 'I Root',
+    sign: 'Leo',
+    natalPlanets: '',
+    activation: 'LOW',
+    isKey: false,
+    isActivated: false,
+    story: `Your emotional foundation wants warmth, drama, creativity. Leo here means home is where you express — not just rest. This year isn't asking much here directly.`,
+    ask: `Stop rebuilding. Start creating from the foundation you already have.`,
+  },
+  {
+    n: 5,
+    verb: 'I Create',
+    sign: 'Virgo',
+    natalPlanets: '',
+    activation: 'MEDIUM',
+    isKey: false,
+    isActivated: false,
+    story: `Your creative expression is editorial. Virgo on the 5th means you create by refining — curating, editing, discerning. Not throwing paint; composing. The transiting South Node passes through here, which means the universe is asking you to stop hiding in the craft and start sharing. The perfection instinct is a comfort zone disguised as a standard.`,
+    ask: `Create less, better. Then release it before it's "ready." It's already better than most people's finished work.`,
+  },
+  {
+    n: 6,
+    verb: 'I Serve',
+    sign: 'Libra',
+    natalPlanets: '♃ Jupiter (Virgo 14°)',
+    activation: 'MEDIUM',
+    isKey: false,
+    isActivated: false,
+    story: `Jupiter here means you grow through building systems — elegant, precise ones. But Jupiter over-expands: you build infrastructure for projects that haven't proven themselves. The Notion workspace with 47 databases for zero clients. The brand architecture for an idea not yet tested with one person. You know this pattern intimately.`,
+    ask: `Build systems for what exists. Not for what you imagine might exist if everything goes perfectly.`,
+  },
+  {
+    n: 7,
+    verb: 'I Partner',
+    sign: 'Scorpio',
+    natalPlanets: '♀ Venus (15°) · ♇ Pluto (21°)',
+    activation: 'VERY HIGH',
+    isKey: true,
+    isActivated: false,
+    story: `One of your most powerful houses — Venus is your chart ruler, so this shapes everything. Pluto here means partnerships are transformative by nature. You can't do surface-level collaboration. Venus in Scorpio attracts through depth, mystery, emotional intelligence — not accessibility. Think about what's worked: Briony, the Christophe Robin journey, even Motus9 when it's real. They engaged your depth. The ones that drained you asked you to be lighter than you are.`,
+    ask: `Choose partnerships that match your intensity. Your depth is the asset, not the problem.`,
+  },
+  {
+    n: 8,
+    verb: 'I Transform',
+    sign: 'Sagittarius',
+    natalPlanets: '☉ Sun (27°) · ☿ Mercury (8°) · ♂ Mars (14°)',
+    activation: 'VERY HIGH',
+    isKey: true,
+    isActivated: false,
+    story: `Three planets — this is where you live. Your identity, your mind, and your drive all operate in the territory of shared resources, transformation, and deep exchange. You're wired for joint ventures, other people's value systems, invisible dynamics underneath transactions. This is why the thematic auction concept excites you, why OOC as a partnership felt more alive than solo. You ACT best when co-invested. The Sagittarius flavor means you approach all of this philosophically — seeking meaning in the exchange, not just profit.`,
+    ask: `Stop hesitating at the threshold of shared stakes. Sun, Mercury, Mars — this is literally where you live. When you're structuring OOC or pitching the auction concept, you are HOME.`,
+  },
+  {
+    n: 9,
+    verb: 'I Explore',
+    sign: 'Capricorn',
+    natalPlanets: '♅ Uranus (12°) · ☊ North Node (9°)',
+    activation: 'VERY HIGH',
+    isKey: true,
+    isActivated: false,
+    story: `Your growth direction. Everything here asks you to build lasting intellectual frameworks, not just accumulate knowledge. Capricorn wants structure, authority, mastery. Uranus adds disruption — your ideas don't fit existing categories. That's the point. You're not meant to join someone else's institution. You're meant to build the framework others eventually reference. OOC, the collector education, the thematic auction concept — all 9th house North Node expressions.`,
+    ask: `Stop being a student. Start being the one who structures what others learn from.`,
+  },
+  {
+    n: 10,
+    verb: 'I Achieve',
+    sign: 'Capricorn / Aquarius',
+    natalPlanets: '♄ Saturn (Aqu 4°) · ♆ Neptune (Cap 15°) · MC (Cap 14°11′)',
+    activation: 'VERY HIGH',
+    isKey: true,
+    isActivated: false,
+    story: `MC conjunct Neptune — people see you as someone who operates between worlds. That's not a branding problem; it's a feature. Saturn in Aquarius demands discipline on an unconventional path. Pluto transiting here now (2024–2044) is permanently dismantling old career structures. Working for other people's brands, fitting institutional roles — Pluto is dissolving all of it. What remains has to be authentically yours. Everything you do now sets the tone for the next decade.`,
+    ask: `The non-traditional path IS the serious one. Neptune dreams it, Saturn builds it, Pluto destroys what isn't real. Don't play small.`,
+  },
+  {
+    n: 11,
+    verb: 'I Circulate',
+    sign: 'Pisces',
+    natalPlanets: '',
+    activation: 'HIGH',
+    isKey: false,
+    isActivated: true,
+    story: `Your networks dissolve boundaries — luxury and tech, intellect and intimacy, aesthetics and invisible systems. Transiting North Node here through mid-2026 means growth requires actual circulation, not private refinement. But Pisces over-dissolves: giving energy to every network equally, losing yourself in collective projects that aren't yours.`,
+    ask: `Curated > comprehensive. Small room > large audience. Not all flows return value.`,
+  },
+  {
+    n: 12,
+    verb: 'I Surrender',
+    sign: 'Aries',
+    natalPlanets: '',
+    activation: 'HIGH',
+    isKey: false,
+    isActivated: true,
+    story: `Hidden fire. Behind the Taurus composure is an Aries impulse: bold, impatient, angry sometimes. Saturn transiting here (2025–2028) means this hidden fire is being structured — suppressed ambition, unconscious self-sabotage, blocks around independence are all surfacing. This is a pruning year. If you resist, 2027 becomes explosive.`,
+    ask: `Honor the impulse as information. The discipline is internal now.`,
+  },
+];

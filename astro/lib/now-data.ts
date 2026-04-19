@@ -25,6 +25,39 @@ export function buildTransitContext(
   );
 }
 
+// ─── Cached house transit one-liner ──────────────────────────────────────────
+
+export async function getHouseTransitLine(
+  planetKey: string,
+  houseN: number,
+  bucket12h: string,
+  context: string,
+): Promise<string> {
+  'use cache';
+  cacheLife({ stale: 60, revalidate: 12 * 3600, expire: 12 * 3600 });
+
+  void planetKey;
+  void houseN;
+  void bucket12h;
+
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) return '';
+
+  try {
+    const client = new Anthropic({ apiKey });
+    const response = await client.messages.create({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 60,
+      system: SYSTEM_PROMPT,
+      messages: [{ role: 'user', content: context }],
+    });
+    const block = response.content[0];
+    return block.type === 'text' ? block.text.trim() : '';
+  } catch {
+    return '';
+  }
+}
+
 // ─── Cached interpretation ────────────────────────────────────────────────────
 //
 // Arguments are the cache key: `key` (planet-aspect-planet slug) + `bucket12h`
