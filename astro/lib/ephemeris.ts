@@ -266,6 +266,50 @@ function calcMoonPhase(jd: number, houseCusps: number[]): MoonPhase {
 
 // ─── Main calculation ─────────────────────────────────────────────────────────
 
+// ─── Upcoming lunations ───────────────────────────────────────────────────────
+
+export interface UpcomingLunation {
+  type: 'new' | 'full';
+  date: string;
+  sign: ZodiacSign;
+  degree: number;
+  house: number;
+  longitude: number;
+  nearNatal: Array<{ planet: PlanetName; orb: number }>;
+}
+
+export function getUpcomingLunations(date: Date = new Date()): UpcomingLunation[] {
+  const jd       = dateToJD(date);
+  const ORB      = 5;
+  const results: UpcomingLunation[] = [];
+
+  for (const [type, angle] of [['new', 0], ['full', 180]] as const) {
+    const eventJD  = findLunarEvent(jd, angle, 'next');
+    const lon      = calcLongitude(eventJD, swisseph.SE_MOON as number);
+    const { sign, degree } = longitudeToSign(lon);
+
+    // Check proximity to natal planets
+    const nearNatal: Array<{ planet: PlanetName; orb: number }> = [];
+    for (const [pName, natal] of Object.entries(NATAL_POSITIONS) as [PlanetName, { longitude: number }][]) {
+      let diff = Math.abs(((lon - natal.longitude + 540) % 360) - 180);
+      if (diff <= ORB) nearNatal.push({ planet: pName, orb: Math.round(diff * 100) / 100 });
+    }
+    nearNatal.sort((a, b) => a.orb - b.orb);
+
+    results.push({
+      type,
+      date:      jdToDate(eventJD).toISOString().split('T')[0],
+      sign,
+      degree,
+      house:     getHouseForLongitude(lon, NATAL_HOUSE_CUSPS),
+      longitude: Math.round(lon * 100) / 100,
+      nearNatal,
+    });
+  }
+
+  return results;
+}
+
 export function calcTransits(date: Date = new Date()): TransitsResult {
   const jd = dateToJD(date);
 
